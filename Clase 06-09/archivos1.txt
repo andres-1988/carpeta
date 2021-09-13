@@ -1,0 +1,80 @@
+Grabar un registro en un archivo
+
+Memoria (variable con datos cargados y validados) 
+a 
+unidad de disco (archivo definido paticular)
+
+
+Abrir si existe; crearlo si no existe
+
+Escribir el registro en el archivo (agregar el registro)
+
+Cerrar el archivo
+
+Abrir->		fopen()
+Escribir->	fwrite()
+Cerrar		fclose()
+Se pueden escribir varios registros en una misma sesión de apertura
+
+****************************************
+Leer un registro de un archivo 
+
+Desde archivo en unidad de disco 
+a
+variable de memoria
+
+Abrir el archivo: tiene que existir
+
+Leer el registro del archivo (copiarlo en la variable de memoria)
+
+Mostrar la variable de memoria
+
+Cerrar el archivo
+
+Abrir->	fopen()
+Leer->	fread()
+Cerrar	->fclose()
+
+Se pueden leer varios registros en una misma sesión de apertura
+
+*************************************
+FUNCIONES DESCRIPCION
+fopen(): permite la apertura y/o creación de un archivo
+FILE * fopen(const char *, const char *)
+
+FILE *nombre-> permite conectar el archivo físico con el programa
+Es un tipo de dato creado para ese fin
+
+FILE * fopen("ruta y nombre del archivo", "modo de apertura")
+
+Modos de apertura
+wb: write-> abre el archivo en modo escritura. 
+Crea un archivo vacío y nos permite que le agreguemos registros
+SIEMPRE CREA UN ARCHIVO VACIO
+
+ab: append -> abre el archivo y permite que se le agreguen registros.
+Si el archivo no existe lo crea
+
+rb- read ->abre el archivo y permite leer los registros. Si no existe el archivo
+da error.
+
+****************************************
+fwrite(): permite escribir registros en un archivo
+
+fwrite(dirección de memoria de la variable con info,
+tamanio variable (bytes),-> usamos sizeof el operador que nos dice el tamaño
+cantidad registros, 
+punteroFILE sobre el que se hizo la apertura del archivo)
+
+****************************************
+fread(): permite leer registros de un archivo
+
+fread(dirección de memoria de la variable adonde se quiere escribir la info,
+tamanio variable (bytes),
+cantidad registros, 
+punteroFILE sobre el que se hizo la apertura del archivo)
+
+****************************************
+fclose(): cierra el archivo 
+Tiene como único parámetro el puntero FILE sobre el que se hizo la apertura
+fclose(pFile)
